@@ -1,13 +1,11 @@
-\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+\documentclass[hyperref=unicode,presentation,10pt]{beamer}
 
 \usepackage[absolute,overlay]{textpos}
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{adjustbox}
-\usepackage{mhchem}
+\usepackage[version=4]{mhchem}
 \usepackage{chemfig}
-\usepackage{ucs}
-\usepackage[utf8]{inputenc}
 \usepackage{caption}
 
 %dělení slov
@@ -15,20 +13,17 @@
 \let\raggedright=\RaggedRight
 %konec dělení slov
 
-\PrerenderUnicode{ěščřžýáíéĚŠČŘŽÝÁÍÉďťňĎŤŇůúÚóÓ}
-
 \addtobeamertemplate{frametitle}{
-   \let\insertframetitle\insertsectionhead}{}
+	\let\insertframetitle\insertsectionhead}{}
 \addtobeamertemplate{frametitle}{
-   \let\insertframesubtitle\insertsubsectionhead}{}
+	\let\insertframesubtitle\insertsubsectionhead}{}
 
 \makeatletter
-  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
 \makeatother
 \setbeamercolor{section in toc}{fg=red}
 \setbeamertemplate{section in toc shaded}[default][100]
-
 
 \usepackage{fontspec}
 \usepackage{unicode-math}
@@ -39,17 +34,18 @@
 \def\uv#1{„#1“}
 
 \mode<presentation>{\usetheme{default}}
- \usecolortheme{crane}
+\usecolortheme{crane}
 
 \setbeamertemplate{footline}[frame number]
 
-\begin{document}
 \title[Crisis]
 {C2062 -- Anorganická chemie II}
 
 \subtitle{(Kyslík, síra,) selen, tellur, polonium a livermorium}
 \author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=60mm]{img/IUPAC_PSP.jpg}}
 \date{}
+
+\begin{document}
 
 \begin{frame}
 	\titlepage
@@ -73,7 +69,8 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
-				\adjincludegraphics[width=\textwidth]{img/Liquid_oxygen.jpg}
+				\adjincludegraphics[width=.83\textwidth]{img/Liquid_oxygen.jpg}
+				\caption*{Kapalný kyslík.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Liquid_oxygen_in_a_beaker_(cropped_and_retouched).jpg}{Staff Sgt. Nika Glover, U.S. Air Force/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
@@ -82,7 +79,8 @@
 \frame{
 	\frametitle{}
 	\begin{figure}
-		\adjincludegraphics[width=.8\textwidth]{img/Diagramme_OM_O2.jpg}
+		\adjincludegraphics[width=.68\textwidth]{img/Diagramme_OM_O2.jpg}
+		\caption*{Diagram molekulových orbitalů v molekule \ce{O2}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Diagramme_OM_O2.jpg}{jflm/Commons}}}
 	\end{figure}
 }
 
@@ -104,6 +102,7 @@
 		\begin{column}{0.4\textwidth}
 			\begin{figure}
 				\adjincludegraphics[width=\textwidth]{img/Delta_IV_launch.jpg}
+				\caption*{Start rakety Delta IV.\footnote[frame]{Zdroj: \href{https://www.af.mil/News/Photos.aspx?igphoto=2000709622}{U.S. Air Force/Joe Davila}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
@@ -129,6 +128,7 @@
 	\frametitle{}
 	\begin{figure}
 		\adjincludegraphics[width=.8\textwidth]{img/Uars_ozone_waves.jpg}
+		\caption*{Ozonová vrstva v roce 1984 a 1997.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Uars_ozone_waves.jpg}{NASA/Commons}}}
 	\end{figure}
 }
 
@@ -161,8 +161,8 @@
 \frame{
 	\frametitle{}
 	\begin{figure}
-		\adjincludegraphics[width=\textwidth]{img/CaF2_polyhedra.png}
-		\caption*{Krystalová struktura \ce{Li2O}, šedé atomy jsou kyslíky.}
+		\adjincludegraphics[width=.85\textwidth]{img/CaF2_polyhedra.png}
+		\caption*{Krystalová struktura \ce{Li2O}, šedé atomy jsou kyslíky.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:CaF2_polyhedra.png}{Solid State/Commons}}}
 	\end{figure}
 }
 
@@ -171,24 +171,38 @@
 \section{Síra}
 \frame{
 	\frametitle{}
+	\begin{itemize}
+		\item Značka S, protonové číslo 16. Pevná, žlutá látka.
+		\item Vytváří cyklické osmiatomové molekuly, \ce{S8}. Známe několik dalších allotropických modifikací.\footnote[frame]{\href{https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry/Map\%3A_Inorganic_Chemistry_(Housecroft)/16\%3A_The_Group_16_Elements/16.04\%3A_The_Elements/16.4C\%3A_Sulfur_-_Allotropes}{Sulfur - Allotropes}}
+		\begin{itemize}
+			\item Nejstabilnější je kosočtverečná modifikace $\alpha$.
+			\item Při teplotě 95,3~$^\circ$C přechází na jednoklonnou modifikaci $\beta$.
+			\item Jednoklonná modifikace $\gamma$ vzniká pomalým ochlazováním taveniny síry.
+		\end{itemize}
+		\item Jednou z průmyslově nejvýznamnějších sloučenin síry je kyselina sírová, \ce{H2SO4}. Mimo ní známe velké množství dalších kyselin obsahujících síru.
+		\item Hlavními zdroji síry jsou ropa a zemní plyn.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/sulfur-statistics-and-information}{Sulfur Statistics and Information}}
+		\item \ce{SO2} pro výrobu kyseliny sírové se získává při redukci sulfidových rud.
+	\end{itemize}
+}
+
+\frame{
+	\frametitle{}
+	\vfill
 	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\vfill
-			\begin{itemize}
-				\item Značka S, protonové číslo 16. Pevná, žlutá látka.
-				\item Vytváří cyklické osmiatomové molekuly, \ce{S8}. Známe několik dalších allotropických modifikací.
-				\item Jednou z průmyslově nejvýznamnějších sloučenin síry je kyselina sírová, \ce{H2SO4}. Mimo ní známe velké množství dalších kyselin obsahujících síru.
-				\item Hlavními zdroji síry jsou ropa a zemní plyn. \ce{SO2} pro výrobu kyseliny sírové se získává při redukci sulfidových rud.\footnote[frame]{\href{https://www.usgs.gov/centers/nmic/sulfur-statistics-and-information}{Sulfur Statistics and Information}}
-			\end{itemize}
-			\vfill
-		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\adjincludegraphics[width=\textwidth]{img/Sulfur-sample.jpg}
+				\caption*{Síra.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sulfur-sample.jpg}{Ben Mills/Commons}}}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
 				\adjincludegraphics[width=.8\textwidth]{img/Cyclooctasulfur.png}
+				\caption*{Struktura cyklooktasíry, \ce{S8}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Cyclooctasulfur-above-3D-balls.png}{Benjah-bmm27/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
+	\vfill
 }
 
 \frame{
@@ -203,7 +217,7 @@
 	\frametitle{}
 	\begin{figure}
 		\adjincludegraphics[height=.7\textheight]{img/Sulfur-Miner.jpg}
-		\caption*{Síra se těží i povrchově, těžař s 90 kg nákladem síry z vulkánu \href{https://commons.wikimedia.org/wiki/File:Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-04.jpg}{\textit{Ijen v Indonésii}}.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-04.jpg}{Zdroj: CEphoto, Uwe Aranas}}}
+		\caption*{Síra se těží i povrchově, těžař s 90 kg nákladem síry z vulkánu \href{https://commons.wikimedia.org/wiki/File:Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-04.jpg}{\textit{Ijen v Indonésii}}.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Kawah-Ijen_Indonesia_Ijen-Sulfur-Miner-04.jpg}{CEphoto, Uwe Aranas}}}
 	\end{figure}
 }
 
@@ -230,7 +244,7 @@
 	\frametitle{}
 	\begin{itemize}
 		\item Kyselina sírová se vyrábí oxidací \ce{SO2} na \ce{SO3}.
-		\item \ce{SO2} se dříve získával spalováním elementární síry, dnes se častěji využívá oxid siřičitý z redukce sulfidických rud a jiných chemických procesů:
+		\item \ce{SO2} lze získat spalováním elementární síry, dnes se ale často využívá oxid siřičitý z redukce sulfidických rud a jiných chemických procesů:
 		\item \ce{2 Cu2O + Cu2S -> 6 Cu + SO2}
 		\item Oxid siřičitý lze pak oxidovat buď katalyticky (kontaktní způsob):
 		\item \ce{2 SO2 + O2 ->[V2O5 + K2SO4] 2 SO3}
@@ -252,7 +266,8 @@
 		\item V kapalném a pevném stavu existuje rovnováha mezi monomerní a trimerní formou.
 		\item Trimer, \ce{S3O9} má vaničkovou konformaci.
 		\begin{figure}
-			\adjincludegraphics[height=.45\textheight]{img/Sulfur-trioxide-trimer.png}
+			\adjincludegraphics[height=.3\textheight]{img/Sulfur-trioxide-trimer.png}
+			\caption*{Krystalová struktura trimeru oxidu sírového.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Sulfur-trioxide-trimer-from-xtal-1967-3D-balls-B.png}{Ben Mills/Commons}}}
 		\end{figure}
 	\end{itemize}
 }
@@ -260,8 +275,8 @@
 \frame{
 	\frametitle{}
 	\begin{figure}
-		\adjincludegraphics[height=.7\textheight]{img/Schefeltrioxid.jpg}
-		\caption*{Trimer oxidu sírového}
+		\adjincludegraphics[height=.65\textheight]{img/Schefeltrioxid.jpg}
+		\caption*{Vzorek trimeru oxidu sírového.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Schefeltrioxid.jpg}{H. Hiller/Commons}}}
 	\end{figure}
 }
 
